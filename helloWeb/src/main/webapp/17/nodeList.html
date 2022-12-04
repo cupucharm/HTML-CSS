@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Web Programming</title>
+	<link rel="stylesheet" href="css/nodelist.css">
+</head>
+<body>
+	<h1>Web Programming</h1>
+	<ul id="itemList">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>Javascript</li>
+	</ul>
+	<script type="text/javascript">
+		let ul = document.querySelector("#itemList");
+		ul.onclick = (event) => {
+			//두가지 방법 
+			//1
+			// event.target.parentNode.removeChild(event.target);
+			
+			//2
+			if (event.target != ul) { //자식에 이벤트 발생할 때
+				ul.removeChild(event.target);
+			}
+		}
+	</script>
+</body>
+</html>

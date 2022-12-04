@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>타이머입니당</title>
+<style>
+body {
+	margin: 0 auto;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<p><h1>
+		⏰현재 시간 : <span id="current">오전 10:18</span>⏰
+	</h1></p>
+	<input id="reload" type="button" value="새로고침">
+	<input id="start" type="button" value="시작">
+	<input id="stop" type="button" value="멈춤">
+	<script type="text/javascript">
+	
+	printTime = () => {
+		let now = new Date();
+		document.querySelector("#current").innerText = now.toLocaleTimeString();
+	}
+	
+	startTimer = () => {
+		printTime();
+		return setInterval(printTime, 1000);
+	}
+	let intervalId = startTimer();
+	
+	//즉각적으로 반응하는 것 아님
+	/* let intervalId = setInterval(() => {
+		let now = new Date();
+		current.innerText = now.toLocaleTimeString();
+	}, 1000); */
+		
+		document.querySelector("#reload").onclick = () => {
+			printTime();
+		};
+		
+		document.querySelector("#start").onclick = () => {
+			if (intervalId == null) intervalId = startTimer();
+		};
+		
+		document.querySelector("#stop").onclick = () => {
+			clearInterval(intervalId);
+			intervalId = null;
+		};
+		
+		//시스템에서 주기적으로 발생하는 이벤트
+		//1. setTimer
+		/* 
+		setTimeout(처리함수, 시간);		//1회만 실행
+		setInterval(처리함수, 시간); 	//시간 주기로 계속 반복
+		 */
+		 
+		/* 		 
+		printTime = function () {
+			let now = new Date();
+			current.innerText = now.toLocaleTimeString();
+			setTimeout(printTime, 1000);
+		}; 
+		
+		printTime();
+		*/
+		/* 
+		setInterval(() => {
+			let now = new Date();
+			current.innerText = now.toLocaleTimeString();
+		}, 1000);
+		*/ 
+	</script>
+</body>
+</html>

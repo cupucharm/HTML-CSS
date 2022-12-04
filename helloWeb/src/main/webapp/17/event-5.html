@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM event 객체</title>
+<style>
+#container {
+	width: 500px;
+	height: 400px;
+	margin: 10px auto;
+	background-color: yellow;
+	margin: 10px auto;
+}
+
+#cover1 {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	background-color: blue;
+}
+
+#cover2 {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	background-color: red;
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<div id="cover1" class="aaaa"></div>
+		<div id="cover2" class="aaaa"></div>
+		
+		<button id="removeEvent">이벤트 제거</button>
+		<input>
+		
+		<!-- <img src="images/easys-1.jpg" id="cover"> -->
+	</div>
+
+	<script>
+		//		var cover = document.getElementById("cover");
+		var container = document.getElementById("container");
+
+		/* 		cover.addEventListener("mouseover", changePic, false); //false면 부모에게 올라감 -> 특별화
+		 cover.addEventListener("mouseout", originPic, false);
+		 */
+		container.addEventListener("mouseover", changePic2, false); 
+		container.addEventListener("mouseout", originPic2, false);
+		
+		container.addEventListener("mouseover", () => container.style.backgroundColor = 'black', false); //false면 부모에게 올라감 -> 특별화
+		container.addEventListener("mouseout", () => container.style.backgroundColor = 'yellow', false);
+		
+		
+		let oldColor = null;
+
+		/* function changePic() {
+			cover.src = "images/easys-2.jpg";
+		}
+		function originPic() {
+			cover.src = "images/easys-1.jpg";
+		}
+		 */
+		function changePic2(event) {
+			//console.log("mouseover 발생 대상 id = " + event.target.id);
+			//event.target.style.backgroundColor = 'pink';
+			let className = event.target.getAttribute("class");
+			if ("aaaa" === className) {
+				oldColor = event.target.style.backgroundColor;
+				event.target.style.backgroundColor = 'orange';
+			}
+		}
+		function originPic2() {
+			//console.log("mouseout 발생 대상 id = " + event.target.id);
+			//event.target.style.backgroundColor = 'orange';
+			let className = event.target.getAttribute("class");
+			if ("aaaa" === className && oldColor != null) {
+				event.target.style.backgroundColor = oldColor;
+			}
+		}
+		
+		document.querySelector("#removeEvent").onclick = () => {
+			container.removeEventListener("mouseover", changePic2);
+			container.removeEventListener("mouseout", originPic2);
+		}
+	</script>
+</body>
+</html>

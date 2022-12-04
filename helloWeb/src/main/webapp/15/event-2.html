@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>자바스크립트 이벤트</title>
+	<link rel="stylesheet" href="css/function.css">
+</head>
+<body>
+	<ul>
+		<li><a href="#" onclick="changeBg('green')">Green</a></li>
+		<li><a href="#" onclick="changeBg('orange')">Orange</a></li>
+		<li><a href="#" onclick="changeBg('purple')">Purple</a></li>
+	</ul>		
+	<div id="result"></div>
+	
+	<script>
+		function changeBg(color) {
+			var result = document.querySelector('#result'); // document - HTML문서 전체를 의미함. selector를 통해 객체를 읽어들임
+			result.style.backgroundColor = color; //CSS에서 두 단어로 연결된 것의 두번째 첫 글자는 대문자로 표시
+		}
+	</script>
+</body>
+</html>  

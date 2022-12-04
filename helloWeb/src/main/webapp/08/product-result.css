@@ -1,0 +1,48 @@
+table, th, td {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px 20px;
+}
+
+/* #container div {
+	border: 1px solid black;
+	padding: 20px;
+}
+
+#container {
+	width: 600px;
+	margin: 30px auto;
+} */
+
+/* div {
+	border: 1px solid black;
+	padding: 10px;
+}
+*/
+div {
+	padding: 20px;
+	border: 1px dotted black;
+	margin-bottom: 30px;
+}
+
+#container {
+	width: 600px;
+	border: none;
+	margin: 0 auto;
+}
+
+#description {
+	border-top-right-radius: 30px;
+	border-top-left-radius: 30px;
+}
+/* 
+#receipe {
+}
+ */
+#package {
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+}

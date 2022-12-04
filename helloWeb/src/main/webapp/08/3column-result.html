@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>CSS 레이아웃 - 3단 레이아웃</title>
+<meta charset="UTF-8">
+<style type="text/css">
+#container {
+	width: 1200px;
+	margin: 20px auto;
+}
+
+#header {
+	width: 100%;
+	height: 120px;
+	text-align: center;
+	background-color: blue;
+	color: white;
+	line-height: 120px;
+}
+
+#left-sidebar {
+	width: 250px;
+	height: 600px;
+	text-align: center;
+	float: left;
+	background-color: yellow;
+	line-height: 600px;
+}
+
+#contents {
+	width: 800px;
+	height: 600px;
+	text-align: center;
+	float: left;
+	line-height: 600px;
+}
+
+#right-sidebar {
+	width: 150px;
+	height: 600px;
+	text-align: center;
+	float: right;
+	background-color: orange;
+	line-height: 600px;
+}
+
+#footer {
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	clear: left;
+	background-color: red;
+	color: white;
+	line-height: 100px;
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<header id="header">
+			<h1>사이트 제목</h1>
+		</header>
+		<aside id="left-sidebar">
+			<h2>사이드바</h2>
+		</aside>
+		<section id="contents">
+			<h2>본문</h2>
+		</section>
+		<aside id="right-sidebar">
+			<h2>사이드바</h2>
+		</aside>
+		<footer id="footer">
+			<h2>푸터</h2>
+			<footer>
+	</div>
+</body>
+</html>

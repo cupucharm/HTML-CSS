@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자리 배치도</title>
+  <style>
+    table, td{
+      border:1px solid #ccc;
+      border-collapse: collapse;
+      color:green;
+      z-index: 10;
+    }
+    table{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    td{
+      padding: 5px;
+      font-size: 35px;
+    }
+
+    #center{
+      display: inline-block;
+      background: white;
+      left: 20%;
+      top: 10%;
+      position: absolute;
+    }
+    button {
+      background-color: cornflowerblue; /* Green */
+      border: none;
+      color: white;
+
+      padding: 15px 32px;
+      font-size: 200px;
+    }
+    #buttonId {
+      margin : 25%;
+    }
+    #topBlock{
+      height:200px;
+    }
+    #content{
+      /*margin-left:50%;*/
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="topBlock"></div>
+  <span id="buttonId">
+    <button id="button" onclick="myFunction()">시작하기</button>
+  </span>
+  <div id="content"></div>
+  <script>
+    function shuffle(array) {
+      array.sort(() => Math.random() - 0.5);
+    }
+    function swap(origin, target, arr){
+      var temp = str[origin];
+      str[origin] = str[target];
+      str[target] = temp;
+    }
+    function setFixPositionPeople(){
+      swap(girlPos, 7);
+      swap(manPos, str.length-1);
+    }
+
+    var str = ["김영욱", "김유찬", "김윤지", "김진한", "백종근", "안소연", "안혜지", "엄지용", "유종현", "이재진", "이정주", "이찬욱", "이혜빈", "임선경", "임호준", "전효승", "천유진", "최성현", "최수진", "최용혁", "함주호", "홍순혁"];
+
+    shuffle(str);
+
+    var girlPos = str.indexOf("안혜지");
+    var manPos = str.indexOf("백종근");
+
+    setFixPositionPeople();
+
+    console.log(str);
+    document.write("<div id='center'>");
+    document.write("<table id='table' style='display: none'>");
+    document.write("<tr>");
+    for(var i = 1; i <= str.length; i++){
+      document.write("<td>"+str[i-1]+"</td>");
+      if(i == 8) document.write("</tr>");
+      else if(i == 16) document.write("</tr><td></td><td></td><td></td><td></td>");
+      else if(i == 20) document.write("</tr><td></td><td></td><td></td><td></td><td></td><td></td>");
+    }
+    document.write("</table>")
+    document.write("</div>");
+  </script>
+
+  <script>
+      document.querySelectorAll(".change_").forEach(x => x.addEventListener("click", e => {
+        let id = e.target.id;
+        console.log(id);
+      }));
+
+      function myFunction(){
+        document.getElementById("audio").src = "audio/horror.mp3";
+        document.body.style.background = "black";
+
+        var timeleft = 1;
+        var time = 6;
+        var downloadTimer = setInterval(() => {
+          document.getElementById("button").style.display="none";
+
+          if (timeleft >= time) {
+            clearInterval(downloadTimer);
+            document.getElementById('table').style.display = "inline-block";
+            document.getElementById('button').style.display = "none";
+            document.getElementById("content").style.display = "none";
+            document.body.style.backgroundImage = "url('css/img.png')";
+          }
+
+          var displayTime = time - timeleft;
+          document.getElementById("content").innerHTML = "<span id='spanCount'>" + displayTime +"</span>";
+          var colorCode = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+          document.getElementById("spanCount").style.color = colorCode;
+          var size = 80 * parseInt(timeleft);
+          document.getElementById("spanCount").style.fontSize = ""+size+"px";
+
+          timeleft += 1;
+        }, 1000);
+      }
+
+  </script>
+  <audio id="audio" src="audio/spring.mp3" autoplay></audio>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Programming</title>
+<link rel="stylesheet" href="css/nodelist.css">
+</head>
+<body>
+	<div id="container">
+		<h1>Web Programming</h1>
+		<p>공부할 주제를 기록해 보세요</p>
+		<form action=""> <!-- 1. onsubmit="return false;" 추가 --!>
+			<input type="text" id="subject" autofocus>
+			<button id="addButton" >추가</button>  
+			<!-- 2.  <input type="button" id="addButton" value="추가">  -->
+		</form>
+		<hr>
+		<ul id="itemList"></ul>
+	</div>
+
+	<script type="text/javascript">
+  	/* document.querySelector("#addButton").onclick = () => {
+  		document.querySelector("#itemList").innerHTML += "<li>" + document.querySelector("#subject").value + "</li>";
+  		
+  	} */
+  
+  	
+  	// 3. document.querySelector("form").onsubmit = () => {return false;}
+  	let itemList = document.querySelector("#itemList");
+  	document.querySelector("#addButton").onclick = () => {
+  		itemList.innerHTML += "<li>" + document.querySelector("#subject").value + "</li>";
+  		document.querySelector("#subject").value = "";
+  	}
+  	
+  </script>
+</body>
+</html>

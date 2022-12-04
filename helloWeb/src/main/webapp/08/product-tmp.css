@@ -1,0 +1,41 @@
+table, th, td {
+  border:1px solid #ccc;
+  border-collapse: collapse;
+}
+th, td { 
+  padding:10px 20px; 
+}
+
+#container div {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+#container {
+	width: 600px;
+}
+
+/* div {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+#container {
+	width: 600px;
+	border: none;
+} */
+
+/* #description {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+#receipe {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+#package {
+	border: 1px solid black;
+	padding: 10px;
+} */

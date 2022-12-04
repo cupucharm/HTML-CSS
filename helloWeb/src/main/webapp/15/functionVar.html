@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		function add(a, b) {
+			return a + b;
+		}
+
+		var result = add(10, 20);
+		alert(result);
+
+		var a = 10; 
+		{
+			var a = 10;
+		}
+		
+		/* 
+		자바에서는 모든 데이터를 엑세스할 때
+		클래스를 통해서 접근하면 static 변수
+		객체를 통해서 하면 멤버 변수
+		
+		자바에서 this. 를 생략하고 쓰듯이
+		window를 생략하고 쓴 것
+		 */
+		 
+		window.result = window.add(10, 20); 
+		
+		window.a = 10; //전역변수
+		{
+			var a = 10;
+		} //중괄호 영역 끝나면 a변수 사라짐
+
+		window.result = 10; //진짜 전역 메모리로 할당되어서 끝까지 남아있음. 해제 안됨.
+		result = 10;
+		var result = 10; // 전역이지만 자바스크립트 맨 밑까지 가면 사라짐
+		// 셋 다 같음
+		
+		var result = 10;
+		function add(a, b) {
+			redult = 100;	//오타로 인해서 변수가 선언되었는데, 전역이라서 프로그램이 안죽음 ㅎ
+			return a + b;
+		}
+		
+	</script>
+
+</body>
+</html>

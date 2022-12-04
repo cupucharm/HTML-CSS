@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What time is it?</title>
+<style>
+body {
+	font-size: 2em;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<script>
+		var now = new Date();
+		document.write("현재 시각은 " + now.toLocaleString()); // 로컬 형식으로 표시하기
+
+		// 사용자 객체 만들기
+		// 1. JSON 표기법 - 연관 배열(키:값)
+		var obj = {
+			name : "홍길동",
+			age : 25,
+			sex : '남자',
+			address : "서울특별시 서대문구"
+		};
+		document.write("<br/>" + "이름 : " + obj.name + "<br/>");
+		document.write("나이 : " + obj["age"]);
+
+		// 2. function 이용해서 만들기
+		/* function Person() {
+			console.log("Person() 함수 호출");
+		} */
+
+		/* var Person = function() {
+			console.log("Person() 함수 호출");
+		} */
+
+		window.Person = function() {
+			console.log(this === window); // true //함수 호출 할 때, this는 window
+			console.log("Person() 함수 호출");
+			this.name = "홍길동";
+			this.age = 25;
+			this.sex = "남자";
+			
+			/* this.print = function() {
+				console.log("이름 : " + this.name);
+				console.log("나이 : " + this.age);
+				console.log("성별 : " + this.sex);
+			} */
+		}
+		
+		Person.prototype.print = function() {
+			console.log("이름 : " + this.name);
+			console.log("나이 : " + this.age);
+			console.log("성별 : " + this.sex);
+		}
+
+		Person(); // 함수 호출 // true // this는 window
+
+		var p1 = new Person(); // 함수 호출이지만 new라는 키워드로 인해 메모리를 할당받는 객체 생성 //this는 새로운 메모리		
+		console.log(typeof p1); //object
+		console.log("이름 : " + p1.name);
+		p1.print();
+
+		// 색인 배열
+		var arr = [ 10, 20, 30 ]; //배열 사이즈 3
+		var arr1 = new Array(); //배열 사이즈 0
+		var arr2 = []; //배열 사이즈 0
+
+		console.log("배열의 크기 : " + arr.length);
+	</script>
+</body>
+</html>
+

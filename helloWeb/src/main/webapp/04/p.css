@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/*주석*/
+p {
+	color: yellow;
+	background-color: blue;
+	padding: 10px;
+	text-align: center;
+}
